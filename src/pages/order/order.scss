@@ -1,5 +1,13 @@
+:root {
+  --vh: 1vh;
+}
+
 .order {
-  @apply p-[0.75rem] rounded-[0.5rem] bg-[#fff] flex flex-col gap-[0.5rem] justify-center items-center;
+  @apply p-[0.75rem] rounded-[0.5rem] bg-[#fff] 
+         flex flex-col gap-[0.5rem] 
+         h-[calc(var(--vh)*70)] /* 70% of viewport */
+         overflow-hidden
+         text-center;
   box-shadow: 0px 0px 0.5rem 0px #003dc20f, 0px 0px 0.125rem 0px #003dc20a;
 }
 
@@ -12,7 +20,9 @@
 }
 
 .order__menu-list {
-  @apply flex flex-wrap gap-[1rem] mt-[0.5rem] max-h-[calc(100vh-200px)] overflow-y-auto overscroll-contain;
+  @apply flex flex-wrap gap-[1rem] mt-[0.5rem] 
+         flex-1 /* Take remaining space */
+         overflow-y-auto overscroll-contain;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -64,10 +74,16 @@
 }
 
 .receipt_submit {
-  @apply p-[0.75rem] rounded-[0.5rem] bg-[#fff] flex flex-col gap-[0.5rem] justify-center items-center mt-[0.8rem];
+  @apply p-[0.75rem] rounded-[0.5rem] bg-[#fff] 
+         flex flex-col gap-[0.5rem] 
+         mt-[0.8rem]
+         h-[calc(var(--vh)*25)] /* 25% of viewport */
+         overflow-hidden
+         text-center;
 
   &__list {
-    @apply w-full;
+    @apply w-full flex-1 overflow-y-auto;
+    -webkit-overflow-scrolling: touch;
 
     &-item {
       @apply flex justify-between items-center
@@ -81,7 +97,7 @@
         @apply flex items-center gap-2;
 
         .quantity-btn {
-          @apply w-6 h-6 flex items-center justify-center bg-[#d2b48c] text-white rounded-md cursor-pointer select-none hover:bg-[#c19a6b] active:scale-95 outline-none border-none;
+          @apply w-6 h-6 flex items-center justify-center bg-[#d2b48c] text-white rounded-md cursor-pointer select-none hover:bg-[#c19a6b] active:scale-95 outline-none border-none outline-none border-none;
         }
 
         > span {

@@ -85,7 +85,7 @@ function Order() {
   };
 
   return (
-    <Fragment>
+    <>
       <div className="order">
         <span className="order__title">Cozy Blend</span>
         <span className="order__menu">Menu</span>
@@ -181,7 +181,7 @@ function Order() {
         </div>
         <button className="receipt_submit__button">Send Order</button>
       </div>
-    </Fragment>
+    </>
   );
 }
 
