@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --vh: 1vh;
 }
@@ -10,7 +14,11 @@
 }
 
 body {
-  @apply bg-[#f5f5dc] fixed inset-0 overflow-hidden;
+  @apply bg-[#f5f5dc] fixed overflow-hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   height: calc(var(--vh) * 100);
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
