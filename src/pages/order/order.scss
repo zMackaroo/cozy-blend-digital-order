@@ -1,0 +1,105 @@
+.order {
+  @apply p-[0.75rem] rounded-[0.5rem] bg-[#fff] flex flex-col gap-[0.5rem] justify-center items-center;
+  box-shadow: 0px 0px 0.5rem 0px #003dc20f, 0px 0px 0.125rem 0px #003dc20a;
+}
+
+.order__title {
+  @apply text-[2rem];
+}
+
+.order__menu {
+  @apply text-[0.875rem] text-[#c19a6b];
+}
+
+.order__menu-list {
+  @apply flex flex-wrap gap-[1rem] mt-[0.5rem] max-h-[calc(100vh-200px)] overflow-y-auto overscroll-contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.order__menu-list-item {
+  @apply flex flex-col flex-1 items-center gap-[0.5rem];
+
+  &-image {
+    > img {
+      @apply rounded-[0.5rem] object-cover w-[10rem] h-[14rem] min-w-[10rem] min-h-[14rem];
+    }
+  }
+
+  &-title {
+    @apply text-[1.25rem] text-[#000] truncate  overflow-hidden whitespace-nowrap;
+  }
+
+  &-price-value {
+    @apply text-[0.975rem] text-[#000];
+  }
+
+  &-description {
+    @apply text-[0.875rem] text-[#6c757d] text-center line-clamp-3  max-h-[68px] overflow-hidden;
+  }
+
+  &-quantity {
+    @apply flex items-center gap-2;
+
+    .quantity-btn {
+      @apply w-6 h-6 flex items-center justify-center bg-[#d2b48c] text-white rounded-md cursor-pointer select-none hover:bg-[#c19a6b] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed outline-none border-none;
+    }
+
+    > input {
+      @apply w-12 text-center border rounded-md p-1 outline-none;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      &[type="number"] {
+        -moz-appearance: textfield;
+      }
+    }
+  }
+
+  &-cart-button {
+    @apply w-full bg-[#d2b48c] outline-none border-none p-[0.5rem] rounded-[0.5rem] text-[0.875rem] text-[#fff] font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#c19a6b] active:scale-95;
+  }
+}
+
+.receipt_submit {
+  @apply p-[0.75rem] rounded-[0.5rem] bg-[#fff] flex flex-col gap-[0.5rem] justify-center items-center mt-[0.8rem];
+
+  &__list {
+    @apply w-full;
+
+    &-item {
+      @apply flex justify-between items-center
+             py-2 px-3 border-b;
+
+      &-details {
+        @apply flex flex-1 items-center gap-4;
+      }
+
+      &-quantity {
+        @apply flex items-center gap-2;
+
+        .quantity-btn {
+          @apply w-6 h-6 flex items-center justify-center bg-[#d2b48c] text-white rounded-md cursor-pointer select-none hover:bg-[#c19a6b] active:scale-95 outline-none border-none;
+        }
+
+        > span {
+          @apply min-w-[2rem] text-center;
+        }
+      }
+    }
+  }
+
+  &__total {
+    @apply w-full flex justify-between items-center py-3 px-3 font-bold border-t border-[#d2b48c];
+  }
+}
+
+.receipt_submit__title {
+  @apply text-[2rem] text-[#000];
+}
+
+.receipt_submit__button {
+  @apply w-full bg-[#d2b48c] outline-none border-none p-[0.5rem] rounded-[0.5rem] text-[0.875rem] text-[#fff] font-bold;
+}
