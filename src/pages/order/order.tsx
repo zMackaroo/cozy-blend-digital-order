@@ -181,7 +181,7 @@ function Order() {
         </div>
         <button className="receipt_submit__button">Send Order</button>
       </div>
-    </>
+    </Fragment>
   );
 }
 
