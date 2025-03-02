@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useLocation, Navigate } from "react-router-dom";
 import "./tracking.scss";
 
-enum OrderStatus {
-  RECEIVED = "Order Received",
-  PREPARING = "Preparing your order",
-  READY = "Ready for pickup",
-}
+// enum OrderStatus {
+//   RECEIVED = "Order Received",
+//   PREPARING = "Preparing your order",
+//   READY = "Ready for pickup",
+// }
 
 function Tracking() {
   const location = useLocation();
@@ -18,25 +18,25 @@ function Tracking() {
     return <Navigate to="/" replace />;
   }
 
-  const [currentStatus, setCurrentStatus] = useState<OrderStatus>(
-    OrderStatus.RECEIVED
-  );
+  // const [currentStatus, setCurrentStatus] = useState<OrderStatus>(
+  //   OrderStatus.RECEIVED
+  // );
 
-  useEffect(() => {
-    // Simulate order status updates
-    const timer1 = setTimeout(() => {
-      setCurrentStatus(OrderStatus.PREPARING);
-    }, 3000);
+  // useEffect(() => {
+  //   // Simulate order status updates
+  //   const timer1 = setTimeout(() => {
+  //     setCurrentStatus(OrderStatus.PREPARING);
+  //   }, 3000);
 
-    const timer2 = setTimeout(() => {
-      setCurrentStatus(OrderStatus.READY);
-    }, 6000);
+  //   const timer2 = setTimeout(() => {
+  //     setCurrentStatus(OrderStatus.READY);
+  //   }, 6000);
 
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-    };
-  }, []);
+  //   return () => {
+  //     clearTimeout(timer1);
+  //     clearTimeout(timer2);
+  //   };
+  // }, []);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
