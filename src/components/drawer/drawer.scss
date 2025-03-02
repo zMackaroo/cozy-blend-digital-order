@@ -1,0 +1,87 @@
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.drawer {
+  @apply fixed bottom-0 left-0 right-0
+         h-[70vh] w-full
+         bg-white 
+         rounded-t-[1rem]
+         z-50
+         touch-none;
+  transform: translateY(100%);
+
+  @media screen and (min-width: 481px) {
+    @apply w-[400px] left-auto right-[2rem]
+           h-[80vh];
+  }
+
+  &--open {
+    animation: slideUp 0.3s ease-out forwards;
+  }
+
+  &:not(&--open) {
+    animation: slideDown 0.3s ease-out forwards;
+  }
+
+  &__handle {
+    @apply absolute top-3 left-[45%]
+           w-12 h-1 
+           bg-gray-300 
+           rounded-full
+           -translate-x-1/2
+           cursor-grab;
+
+    &:active {
+      @apply cursor-grabbing;
+    }
+  }
+}
+
+.drawer__backdrop {
+  @apply fixed inset-0 bg-black 
+         z-40;
+  opacity: 0;
+  pointer-events: none;
+
+  &--open {
+    animation: fadeIn 0.3s ease-out forwards;
+    pointer-events: auto;
+  }
+
+  &:not(&--open) {
+    animation: fadeOut 0.3s ease-out forwards;
+  }
+}

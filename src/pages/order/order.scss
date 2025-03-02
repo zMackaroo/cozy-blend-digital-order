@@ -1,12 +1,7 @@
-:root {
-  --vh: 1vh;
-}
-
 .order {
   @apply p-[0.75rem] rounded-[0.5rem] bg-[#fff] 
          flex flex-col gap-[0.5rem] 
-         h-[calc(var(--vh)*70)] /* 70% of viewport */
-         overflow-hidden
+         h-[90dvh]
          text-center;
   box-shadow: 0px 0px 0.5rem 0px #003dc20f, 0px 0px 0.125rem 0px #003dc20a;
 }
@@ -20,14 +15,23 @@
 }
 
 .order__menu-list {
-  @apply flex flex-wrap gap-[1rem] mt-[0.5rem] 
-         flex-1 /* Take remaining space */
-         overflow-y-auto overscroll-contain;
+  @apply flex flex-wrap gap-[0.5rem] overflow-y-auto overscroll-contain;
   -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+
+  @media screen and (min-width: 481px) {
+    justify-content: center;
+  }
 }
 
 .order__menu-list-item {
   @apply flex flex-col flex-1 items-center gap-[0.5rem];
+
+  @media screen and (min-width: 481px) {
+    flex: 0 1 auto;
+    min-width: 200px;
+    max-width: 200px;
+  }
 
   &-image {
     > img {
@@ -44,7 +48,7 @@
   }
 
   &-description {
-    @apply text-[0.875rem] text-[#6c757d] text-center line-clamp-3  max-h-[68px] overflow-hidden;
+    @apply text-[0.875rem] text-[#6c757d] text-center line-clamp-4  max-h-[68px] overflow-hidden;
   }
 
   &-quantity {
@@ -55,7 +59,7 @@
     }
 
     > input {
-      @apply w-12 text-center border rounded-md p-1 outline-none;
+      @apply w-12 text-center border rounded-md p-1 outline-none border-none bg-[#ebd3b5] font-black;
 
       &::-webkit-outer-spin-button,
       &::-webkit-inner-spin-button {
@@ -67,55 +71,83 @@
       }
     }
   }
-
-  &-cart-button {
-    @apply w-full bg-[#d2b48c] outline-none border-none p-[0.5rem] rounded-[0.5rem] text-[0.875rem] text-[#fff] font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#c19a6b] active:scale-95;
-  }
 }
 
-.receipt_submit {
-  @apply p-[0.75rem] rounded-[0.5rem] bg-[#fff] 
-         flex flex-col gap-[0.5rem] 
-         mt-[0.8rem]
-         h-[calc(var(--vh)*25)] /* 25% of viewport */
-         overflow-hidden
-         text-center;
+.order__submit__button {
+  @apply w-full bg-[#d2b48c] outline-none border-none 
+         p-[0.5rem] rounded-[0.5rem] text-[0.875rem] 
+         text-[#fff] font-bold mt-4 cursor-pointer;
+}
 
-  &__list {
-    @apply w-full flex-1 overflow-y-auto;
-    -webkit-overflow-scrolling: touch;
+.order__drawer {
+  @apply flex flex-col h-full p-4;
 
-    &-item {
-      @apply flex justify-between items-center
-             py-2 px-3 border-b;
+  &-header {
+    @apply flex justify-between items-center mb-4;
+  }
 
-      &-details {
-        @apply flex flex-1 items-center gap-4;
-      }
+  &-title {
+    @apply text-2xl font-bold;
+  }
 
-      &-quantity {
-        @apply flex items-center gap-2;
+  &-close {
+    @apply leading-none
+           hover:text-gray-700
+           cursor-pointer text-[#d2b48c] text-[0.8rem];
+  }
 
-        .quantity-btn {
-          @apply w-6 h-6 flex items-center justify-center bg-[#d2b48c] text-white rounded-md cursor-pointer select-none hover:bg-[#c19a6b] active:scale-95 outline-none border-none outline-none border-none;
-        }
+  &-content {
+    @apply flex-1 overflow-y-auto;
+  }
 
-        > span {
-          @apply min-w-[2rem] text-center;
-        }
+  &-item {
+    @apply flex justify-between items-center
+           py-2 border-b;
+
+    &-details {
+      @apply flex items-center gap-4;
+    }
+
+    &-quantity {
+      @apply flex items-center gap-2;
+
+      .quantity-btn {
+        @apply w-6 h-6 flex items-center justify-center 
+               bg-[#d2b48c] text-white rounded-md 
+               cursor-pointer select-none 
+               hover:bg-[#c19a6b] active:scale-95;
       }
     }
   }
 
-  &__total {
-    @apply w-full flex justify-between items-center py-3 px-3 font-bold border-t border-[#d2b48c];
+  &-total {
+    @apply flex justify-between items-center
+           font-bold text-lg
+           border-t border-[#d2b48c];
   }
-}
 
-.receipt_submit__title {
-  @apply text-[2rem] text-[#000];
-}
+  &-name-input {
+    @apply flex flex-col gap-3 mt-4 box-border;
+  }
 
-.receipt_submit__button {
-  @apply w-full bg-[#d2b48c] outline-none border-none p-[0.5rem] rounded-[0.5rem] text-[0.875rem] text-[#fff] font-bold;
+  &-name-field {
+    @apply px-4 py-3 rounded-md
+           border border-[#d2b48c]
+           focus:outline-none focus:ring-2 
+           focus:ring-[#d2b48c] focus:border-[#d2b48c]
+           text-[16px]
+           transition-all duration-200;
+
+    &:focus {
+      @apply border-[#d2b48c] ring-2 ring-[#d2b48c] ring-opacity-50;
+    }
+  }
+
+  &-submit {
+    @apply w-full bg-[#d2b48c] text-white
+           py-3 rounded-lg font-bold
+           hover:bg-[#c19a6b] active:scale-95
+           disabled:opacity-50 disabled:cursor-not-allowed
+           text-[0.875rem];
+  }
 }

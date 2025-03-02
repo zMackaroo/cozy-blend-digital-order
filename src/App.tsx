@@ -1,6 +1,6 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Layout from "./components/layout/layout";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Order from "./pages/order/order";
+import Tracking from "./pages/tracking/tracking";
 import { useEffect } from "react";
 
 function App() {
@@ -27,9 +27,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Order />} />
-        </Route>
+        <Route path="/" element={<Order />} />
+        <Route path="/tracking" element={<Tracking />} />
       </Routes>
     </BrowserRouter>
   );

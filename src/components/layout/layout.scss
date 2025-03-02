@@ -5,15 +5,23 @@
 @media screen and (max-width: 480px) {
   .layout {
     @apply h-full w-full;
-    padding: 0.875rem 1rem;
   }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
+  .layout {
+    @apply h-full w-full px-[3rem];
+  }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1279px) {
+  .layout {
+    @apply h-full w-full px-[6rem];
+  }
 }
 
 @media screen and (min-width: 1280px) {
+  .layout {
+    @apply h-full w-full px-[30rem];
+  }
 }

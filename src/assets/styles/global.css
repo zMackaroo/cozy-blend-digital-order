@@ -4,22 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --vh: 1vh;
-}
-
-#root {
-  height: 100%;
-  padding: 0.25rem;
-}
-
 body {
-  @apply bg-[#f5f5dc] fixed overflow-hidden;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: calc(var(--vh) * 100);
+  @apply bg-[#f5f5dc];
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
 }
